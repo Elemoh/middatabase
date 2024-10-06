@@ -10,42 +10,32 @@ document.getElementById('subscriberForm').addEventListener('submit', function(ev
     const paymentType = document.getElementById('paymentType').value;
     const score = document.getElementById('score').value;
 
-   
-
-   
-    }
-
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const subscriberData = {
-            fullName,
-            registrationNumber,
-            profileCode,
-            examTownCode,
-            paymentImage: e.target.result,
-            paymentMethod,
-            paymentType,
-            score
-        };
-
-        // Send data to the mock API
-        fetch('https://670011894da5bd2375531586.mockapi.io/DATABASE', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(subscriberData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('message').innerText = 'Submission Successful!';
-            document.getElementById('subscriberForm').reset();
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert("There was an error submitting the form.");
-        });
+    // Prepare data to send to the API
+    const subscriberData = {
+        fullName,
+        registrationNumber,
+        profileCode,
+        examTownCode,
+        paymentImage: null, // No longer handling image
+        paymentMethod,
+        paymentType,
+        score
     };
 
-    reader.readAsDataURL(paymentImage);
+    // Send the data to the API
+    fetch('https://6701fb99b52042b542d8eb58.mockapi.io/Subscribers', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(subscriberData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('message').innerText = 'Submission Successfully!';
+        document.getElementById('subscriberForm').reset();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 });
