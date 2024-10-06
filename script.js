@@ -19,12 +19,35 @@ document.getElementById('subscriberForm').addEventListener('submit', function(ev
         score
     };
 
+    // Check if the subscriber is already registered
+    checkIfRegistered(fullName)
+        .then(isRegistered => {
+            if (isRegistered) {
+                document.getElementById('message').innerText = 'You are already registered.';
+            } else {
+                // Submit the new subscriber data
+                submitSubscriber(newSubscriber);
+            }
+        })
+        .catch(error => {
+            console.error('Error checking registration:', error);
+            document.getElementById('message').innerText = 'Error checking registration.';
+        });
+});
+
+async function checkIfRegistered(fullName) {
+    const response = await fetch(`https://6701fb99b52042b542d8eb58.mockapi.io/Subscribers?fullName=${encodeURIComponent(fullName)}`);
+    const subscribers = await response.json();
+    return subscribers.length > 0; // Returns true if already registered
+}
+
+function submitSubscriber(subscriber) {
     fetch('https://6701fb99b52042b542d8eb58.mockapi.io/Subscribers', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(newSubscriber)
+        body: JSON.stringify(subscriber)
     })
     .then(response => response.json())
     .then(() => {
@@ -35,4 +58,4 @@ document.getElementById('subscriberForm').addEventListener('submit', function(ev
         console.error('Error submitting form:', error);
         document.getElementById('message').innerText = 'Error submitting form.';
     });
-});
+}
