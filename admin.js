@@ -63,6 +63,8 @@ function editSubscriber(id) {
         .then(response => response.json())
         .then(subscriber => {
             const fullName = prompt("Edit Full Name:", subscriber.fullName);
+            if (!fullName) return alert("Full Name cannot be empty.");
+
             const registrationNumber = prompt("Edit Registration Number:", subscriber.registrationNumber || "NOT YET AVAILABLE");
             const profileCode = prompt("Edit Profile Code:", subscriber.profileCode || "NOT YET AVAILABLE");
             const examTownCode = prompt("Edit Exam Town Code:", subscriber.examTownCode || "NOT YET AVAILABLE");
@@ -71,7 +73,7 @@ function editSubscriber(id) {
             const score = prompt("Edit Score:", subscriber.score);
 
             const updatedSubscriber = {
-                fullName: fullName || subscriber.fullName,
+                fullName: fullName,
                 registrationNumber: registrationNumber || "NOT YET AVAILABLE",
                 profileCode: profileCode || "NOT YET AVAILABLE",
                 examTownCode: examTownCode || "NOT YET AVAILABLE",
@@ -94,6 +96,7 @@ function editSubscriber(id) {
             })
             .catch(error => {
                 console.error('Error updating subscriber:', error);
+                alert("Error updating subscriber.");
             });
         })
         .catch(error => {
