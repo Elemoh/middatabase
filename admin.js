@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <td>${subscriber.score}</td>
                                     <td>
                                         <button onclick="editSubscriber(${subscriber.id})">Edit</button>
-                                        <button onclick="deleteSubscriber(${subscriber.id})">Delete</button>
+                                        <button class="delete" onclick="deleteSubscriber(${subscriber.id})">Delete</button>
                                     </td>
                                 </tr>
                             `).join('')}
