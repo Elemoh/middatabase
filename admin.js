@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             </tr>
                         </thead>
                         <tbody>
-                            ${subscribers.map((subscriber, index) => `
+                            ${subscribers.map((subscriber) => `
                                 <tr>
-                                    <td>${subscriber.id}</td> <!-- Assuming 'id' is used for serial number -->
+                                    <td>${subscriber.id}</td>
                                     <td>${subscriber.fullName}</td>
                                     <td>${subscriber.registrationNumber || "NOT YET AVAILABLE"}</td>
                                     <td>${subscriber.profileCode || "NOT YET AVAILABLE"}</td>
@@ -39,7 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <td>${subscriber.paymentMethod}</td>
                                     <td>${subscriber.paymentType}</td>
                                     <td>${subscriber.score}</td>
-                                    <td><button onclick="editSubscriber(${subscriber.id})">Edit</button></td>
+                                    <td>
+                                        <button onclick="editSubscriber(${subscriber.id})">Edit</button>
+                                        <button onclick="deleteSubscriber(${subscriber.id})">Delete</button>
+                                    </td>
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -67,7 +70,6 @@ function editSubscriber(id) {
             const paymentType = prompt("Edit Payment Type (Deposit Payment / Full Payment):", subscriber.paymentType);
             const score = prompt("Edit Score:", subscriber.score);
 
-            // Prepare updated data
             const updatedSubscriber = {
                 fullName: fullName || subscriber.fullName,
                 registrationNumber: registrationNumber || "NOT YET AVAILABLE",
@@ -78,7 +80,6 @@ function editSubscriber(id) {
                 score: score || subscriber.score
             };
 
-            // Send the updated data to the API
             fetch(`https://6701fb99b52042b542d8eb58.mockapi.io/Subscribers/${id}`, {
                 method: 'PUT',
                 headers: {
@@ -98,4 +99,20 @@ function editSubscriber(id) {
         .catch(error => {
             console.error('Error fetching subscriber:', error);
         });
+}
+
+function deleteSubscriber(id) {
+    if (confirm("Are you sure you want to delete this subscriber?")) {
+        fetch(`https://6701fb99b52042b542d8eb58.mockapi.io/Subscribers/${id}`, {
+            method: 'DELETE'
+        })
+        .then(() => {
+            alert("Subscriber deleted successfully!");
+            document.getElementById('viewSubscribers').click(); // Refresh the list
+        })
+        .catch(error => {
+            console.error('Error deleting subscriber:', error);
+            alert("Error deleting subscriber.");
+        });
+    }
 }
