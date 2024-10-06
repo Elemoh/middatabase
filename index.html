@@ -10,20 +10,18 @@
     <div class="container">
         <h1>2025 JAMB SUBSCRIBERS DATABASE</h1>
         <form id="subscriberForm">
-          
-            <label for="uname" style="color: red;"> Full Name</label>
+            <label for="fullName" style="color: red;">Full Name</label>
             <input type="text" id="fullName" placeholder="Full Name" required>
-            <label for="uname" style="color: red;"> Registration Number</label> 
+            <label for="registrationNumber" style="color: red;">Registration Number</label> 
             <input type="text" id="registrationNumber" value="NOT YET AVAILABLE" readonly>
-            <label for="uname" style="color: red;">Profile Code</label>
+            <label for="profileCode" style="color: red;">Profile Code</label>
             <input type="text" id="profileCode" value="NOT YET AVAILABLE" readonly>
-            <label for="uname" style="color: red;">Exam Town Code</label>
+            <label for="examTownCode" style="color: red;">Exam Town Code</label>
             <input type="text" id="examTownCode" value="NOT YET AVAILABLE" readonly>
 
             <div>
-                <label for="uname" style="color: red;"> Package you Paid for</label><br>
+                <label for="paymentMethod" style="color: red;">Package you Paid for</label><br>
                 <label>
-                    
                     <input type="radio" name="paymentMethod" value="Direct System" required>
                     Direct System
                 </label>
@@ -32,24 +30,21 @@
                     Direct Mobile
                 </label>
             </div><br>
-            <label for="uname" style="color: red;">Select Payment Type</label>
+            <label for="paymentType" style="color: red;">Select Payment Type</label>
             <select id="paymentType" required>
                 <option value="Part Payment">Deposit Payment</option>
                 <option value="Full Payment">Full Payment</option>
-             
-      
             </select>
-            <label for="uname" style="color: red;">Score you want</label>
+            <label for="score" style="color: red;">Score you want</label>
             <input type="number" id="score" placeholder="Enter Score" required>
 
-            <button type="submit">SUBMIT </button>
+            <button type="submit">SUBMIT</button>
         </form>
         <div id="message"></div>
         
         <p><a href="login.html">Admin Login</a> (ExamkingEOT)</p>
     </div>
 
-   
     <script src="script.js"></script>
 </body>
 </html>
