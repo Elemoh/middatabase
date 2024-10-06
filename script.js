@@ -10,11 +10,9 @@ document.getElementById('subscriberForm').addEventListener('submit', function(ev
     const paymentType = document.getElementById('paymentType').value;
     const score = document.getElementById('score').value;
 
-    const paymentImage = document.getElementById('paymentImage') ? document.getElementById('paymentImage').files[0] : null;
+   
 
-    if (!paymentImage) {
-        alert("Please upload an image.");
-        return;
+   
     }
 
     const reader = new FileReader();
