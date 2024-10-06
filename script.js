@@ -16,7 +16,6 @@ document.getElementById('subscriberForm').addEventListener('submit', function(ev
         registrationNumber,
         profileCode,
         examTownCode,
-        paymentImage: null, // No longer handling image
         paymentMethod,
         paymentType,
         score
