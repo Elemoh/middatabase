@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin View</title>
+    <link rel="stylesheet" href="Styles1.css">
+</head>
+<body class="admin-background">
+    <div class="container">
+        <h1>JAMB 2025 SUBSCRIBERS DATABASE</h1>
+        <h1>EXAMKING EOT </h1>
+        <button id="viewSubscribers">View Subscribers</button>
+        <div id="subscribersList"></div>
+        <button id="logout">Logout</button>
+    </div>
+    <script src="admin.js"></script>
+    <script>
+        // Check if the admin is logged in
+        if (!localStorage.getItem('adminLoggedIn')) {
+            alert("You must be logged in to view this page.");
+            window.location.href = "login.html"; // Redirect to login
+        }
+    </script>
+</body>
+</html>

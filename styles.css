@@ -1,0 +1,117 @@
+@keyframes backgroundAnimation {
+    0% {
+        background-image: url('https://www.oasdom.com/wp-content/uploads/2018/07/Oasdom.com-Jamb-federal-university-cut-off-mark-check-jamb-result.jpg');
+    }
+    33% {
+        background-image: url('https://slipsprinting.jamb.gov.ng/assets/admin/pages/media/bg/4.jpg');
+    }
+    34% {
+        background-image: url('https://jamb2025.com/wp-content/uploads/2023/10/JAMB-Recommended-Textbooks-9.png');
+    }
+    66% {
+        background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWb8RTSTeWvv_J82Akrt4Vlf1459MvH1XMJCGsOBxyIBRB9SRWBGFvzVq6gjMc6jqTk5aNvxTlbUgst6Glfp5hT5cQ8ji2uSCqhKnqoLh6_n4O9Tb7dtYOdW9dk1ojhfbANs-DczPDWRw/s1600/JAMB+students+practicing+for+CBT.jpg');
+    }
+    67% {
+        background-image: url('https://ulesson.com/blog/wp-content/uploads/2021/06/Jamb-Preparation.jpg');
+    }
+    100% {
+        background-image: url('https://jamb2025.com/wp-content/uploads/2023/11/JAMB-11.png');
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #333;
+    animation: backgroundAnimation 15s infinite; /* Duration can be adjusted */
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2e7d32; /* Dark green */
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="file"],
+button,
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #2e7d32; /* Green border */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #4caf50; /* Light green on focus */
+    outline: none;
+}
+
+button {
+    background-color: #c70000; /* Red button */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4caf50; /* Lighter green on hover */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #2e7d32; /* Header background */
+    color: white;
+}
+
+img {
+    max-width: 100px;
+}
+
+select {
+    background-color: white; /* White background for better visibility */
+    color: #333; /* Text color */
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="%232e7d32" viewBox="0 0 16 16"><path d="M1 4h14l-7 7z"/></svg>'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Position the custom arrow */
+    background-size: 12px; /* Size of the custom arrow */
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+    input, select, button {
+        font-size: 14px; /* Smaller font size */
+    }
+}
