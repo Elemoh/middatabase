@@ -36,9 +36,11 @@ document.getElementById('subscriberForm').addEventListener('submit', function(ev
 });
 
 async function checkIfRegistered(fullName) {
-    const response = await fetch(`https://6701fb99b52042b542d8eb58.mockapi.io/Subscribers?fullName=${encodeURIComponent(fullName)}`);
+    const response = await fetch('https://6701fb99b52042b542d8eb58.mockapi.io/Subscribers');
     const subscribers = await response.json();
-    return subscribers.length > 0; // Returns true if already registered
+    
+    // Check if the fullName exists in the subscribers
+    return subscribers.some(subscriber => subscriber.fullName.toLowerCase() === fullName.toLowerCase());
 }
 
 function submitSubscriber(subscriber) {
