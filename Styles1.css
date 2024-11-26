@@ -2,7 +2,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     color: #333;
-    background-image: url('https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2023/07/JAMB-2-scaled.jpg?fit=2560%2C1536&ssl=1');
     background-size: cover; /* Cover the entire viewport */
     background-position: center; /* Center the background image */
     min-height: 100vh; /* Ensure body takes full viewport height */
